@@ -1,5 +1,4 @@
 import React, {useState} from 'react'
-import { uploadPP } from '../api';
 import axios from 'axios'
 
 
@@ -12,7 +11,6 @@ export default function UploadProfilePic({cancel}) {
         const data = new FormData();
         data.append("file", file);
         console.log(file);
-        uploadPP(file)
     }
 
     const loadFile = function (event) {

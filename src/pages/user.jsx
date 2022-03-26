@@ -1,5 +1,5 @@
 import { React, useState, useEffect } from 'react';
-import { getData, saved, getSaved } from '../api'
+import { getData } from '../api'
 import { Link } from "react-router-dom";
 import logo_img from '../assets/logo.png'
 import '../user.css'
@@ -9,18 +9,14 @@ import { saveAs } from 'file-saver'
 
 
 export default function UserData({ authenticate }) {
-  // const [images, setImages] = useState([]);
-  // const [save, setSave] = useState(false);
   const [data, setData] = useState([]);
   const [pic, setPic] = useState(false);
   const [upload, setUpload] = useState(false);
-  // const [saveList, setSaveList] = useState([]);
 
   // Get initial data
   const handleData = async () => {
     const temp = await getData();
     setData(temp)
-    // console.log(newTemp);
   }
 
   // Show empty profile pic
@@ -28,22 +24,8 @@ export default function UserData({ authenticate }) {
     event.target.src = 'https://i.pinimg.com/originals/fd/14/a4/fd14a484f8e558209f0c2a94bc36b855.png'
   }
 
-  // Save user logos
-  // const handleSave = (event) => {
-  //   var id = event.target.id;
-  //   saved(localStorage.getItem('useremail'), id)
-  //   setSave(!save)
-  // }
-
-  // Get user's saved logos
-  // const getUserData = async () => {
-  //   const userImages = await getSaved(localStorage.getItem('useremail'))
-  //   setImages(data.filter(o1 => userImages.some(o2 => o1._id === o2)));
-  // }
-
   useEffect(() => {
     handleData();
-    // getUserData();
   }, [data])
 
 
@@ -68,13 +50,6 @@ export default function UserData({ authenticate }) {
               <button className='btn-secondary' onClick={() => authenticate(false)}>Logout</button>
             </div>
             <hr />
-            {/* <div className='saved-images'>
-              {
-                images.map(item=>{
-                  return <img src={`http://localhost:5000/${item.image}`} alt="ALT" key={item}/>
-                })
-              }
-            </div> */}
           </div>
 
         </div>
@@ -85,8 +60,6 @@ export default function UserData({ authenticate }) {
                 <img src={`http://localhost:5000/${item.image}`} alt="" onClick={() => {
                   saveAs(`http://localhost:5000/${item.image}`, 'image.jpg') // Put your image url here.
                 }}/>
-              {/* {!save && <i className="fa-regular fa-heart save" id={item._id} onClick={(e) => handleSave(e)}></i>}
-              {save && <i className="fa-solid fa-heart save save-color" id={item._id} onClick={(e) => handleSave(e)}></i>} */}
             </div>
           )
         })}

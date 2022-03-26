@@ -28,7 +28,6 @@ export default function Signup({ authenticate }) {
   let navigate = useNavigate();
 
   const handleRegister = async () => {
-    // console.log("REGISTERING");
     errs.email.show = false
     errs.pwd.show = false
     const { useremail, password } = user;
@@ -65,7 +64,6 @@ export default function Signup({ authenticate }) {
         }
     })
     }
-    console.log(this.errs);
   }
   const handleChange = (e) => {
     let field_name = e.target.name
@@ -74,7 +72,6 @@ export default function Signup({ authenticate }) {
   }
 
   const validate = () => {
-    // console.log("VALIDATING");
     if (user.password !== user.confirmpassword) {
       return false
     }
@@ -83,7 +80,7 @@ export default function Signup({ authenticate }) {
 
 
   const routeSignin = () => {
-    navigate('/users/signin');
+    navigate('https://mylogo-backend.herokuapp.com/users/signin');
   }
 
   return (
