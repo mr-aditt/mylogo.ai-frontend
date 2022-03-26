@@ -57,8 +57,8 @@ export default function UserData({ authenticate }) {
         {data.map(item => {
           return (
             <div className="image-container" key={item._id}>
-                <img src={`http://localhost:5000/${item.image}`} alt="" onClick={() => {
-                  saveAs(`http://localhost:5000/${item.image}`, 'image.jpg') // Put your image url here.
+                <img src={`https://mylogo-backend.herokuapp.com/${item.image}`} alt="" onClick={() => {
+                  saveAs(`https://mylogo-backend.herokuapp.com/${item.image}`, 'image.jpg') // Put your image url here.
                 }}/>
             </div>
           )
