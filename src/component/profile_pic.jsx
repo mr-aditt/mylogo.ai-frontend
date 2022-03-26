@@ -1,7 +1,4 @@
 import React, {useState} from 'react'
-import axios from 'axios'
-
-
 
 export default function UploadProfilePic({cancel}) {
     const [file, setFile] = useState();
